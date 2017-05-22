@@ -25,7 +25,7 @@
        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times; </a>
        <a href="/">Página Inicial - teste</a>
        <a href="/home">Login</a>
-       <a href="#">Página 3</a>
+       <a href="/caixotes">Caixotes</a>
    </div>
    
    <!-- Use any element to open the sidenav -->
