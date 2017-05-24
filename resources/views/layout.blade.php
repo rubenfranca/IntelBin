@@ -13,6 +13,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('/css/style.css')}}">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     
     <script src="{{ asset('/js/script.js') }}">
         window.Laravel = {!! json_encode([
@@ -23,9 +24,36 @@
 <body>
    <div id="mySidenav" class="sidenav">
        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times; </a>
-       <a href="/">Página Inicial - teste</a>
-       <a href="/home">Login</a>
-       <a href="/caixotes">Caixotes</a>
+           <a href="/">Página Inicial</a>
+           @if(Auth::guest())
+           <a href="/home">Login</a>
+           @endif
+           <a href="/caixotes">Caixotes</a>
+           <a onclick="myAccFunc('edificios')">Edificios<i class="fa fa-caret-down"></i></a>
+                  <div id="edificios" class="w3-hide w3-grey w3-card">
+                  @foreach($edificios as $edificio)
+                      <a href="/edificios/{{$edificio->id}}">{{$edificio->nome}}</a>
+                  @endforeach
+                   </div>
+           
+           
+           <a onclick="myAccFunc('demoAcc')">BackOffice<i class="fa fa-caret-down"></i></a>
+                  <div id="demoAcc" class="w3-hide w3-grey w3-card">
+                       <a href="">Caixotes</a>
+                       <a href="">Edificios</a>
+                       <a href="">Funcionários</a>
+                       <a href="">Locais</a>
+                       <a href="">Pisos</a>
+                       <a href="">Recolhas</a>
+                       <a href="">Tipos</a>
+                       <!--<a href="">Utilizadores</a> -->
+                   </div>
+            @if(Auth::check())
+           <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
+            @endif
+       
    </div>
    
    <!-- Use any element to open the sidenav -->

@@ -67,6 +67,10 @@
                                 @endif
                             </div>
                         </div>
+                        
+                        
+                        <!--TIPO DE UTILIZADOR -->
+                        <input id="tipo_id" type="hidden" class="form-control" name="tipo_id" value=1 required>
 
                         <div class="form-group">
                             <label for="password-confirm" class="col-md-4 control-label">Confirmar Password</label>
