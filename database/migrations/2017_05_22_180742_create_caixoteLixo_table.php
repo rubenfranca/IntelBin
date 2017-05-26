@@ -12,6 +12,7 @@ class CreateCaixoteLixoTable extends Migration {
 			$table->string('nome');
 			$table->string('descricao');
 			$table->integer('capacidade');
+            $table->integer('level');
 			$table->string('tipoLixo');
 			$table->integer('local_id')->unsigned();
 			$table->timestamps();
