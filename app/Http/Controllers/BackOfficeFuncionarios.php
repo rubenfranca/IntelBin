@@ -14,7 +14,8 @@ class BackOfficeFuncionarios extends Controller
      */
     public function index()
     {
-        //
+      $utilizadores =User::paginate(10);
+       return view ('BoFuncionario.index', compact('utilizadores'));
     }
 
     /**

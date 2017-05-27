@@ -39,9 +39,9 @@
            
            <a onclick="myAccFunc('demoAcc')">BackOffice<i class="fa fa-caret-down"></i></a>
                   <div id="demoAcc" class="w3-hide w3-grey w3-card">
-                       <a href="">Caixotes</a>
-                       <a href="">Edificios</a>
-                       <a href="">Funcionários</a>
+                       <a href="/BoCaixote">Caixotes</a>
+                       <a href="/BoEdificio">Edificios</a>
+                       <a href="/BoFuncionario">Funcionários</a>
                        <a href="">Locais</a>
                        <a href="">Pisos</a>
                        <a href="">Recolhas</a>
@@ -57,12 +57,12 @@
    </div>
    
    <!-- Use any element to open the sidenav -->
-   <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;open</span>
+   <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;IntelBin</span>
    
    <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
     <div id="main">
         <div class="col-md-8 col-md-offset-2">
-           <h1>Intel Bin</h1>
+
         </div>
             @yield('content')
     </div>

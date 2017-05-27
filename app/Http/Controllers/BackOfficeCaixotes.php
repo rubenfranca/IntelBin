@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\CaixoteLixo;
+use App\Local;
 use Illuminate\Http\Request;
 
 class BackOfficeCaixotes extends Controller
@@ -14,7 +15,8 @@ class BackOfficeCaixotes extends Controller
      */
     public function index()
     {
-        //
+        $caixotes  = CaixoteLixo::paginate(2);
+        return view ('BoCaixote.index', compact('caixotes'));
     }
 
     /**
@@ -24,7 +26,8 @@ class BackOfficeCaixotes extends Controller
      */
     public function create()
     {
-        //
+        $local = Local::all();
+        return view('BoCaixote.create', compact('local'));
     }
 
     /**
@@ -35,7 +38,31 @@ class BackOfficeCaixotes extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //validação dos dados
+            $this->validate($request, [
+
+            'nome' => 'required|max:255',
+            'descricao' => 'required|max:255',
+            'capacidade' => 'required',
+            'level' => 'required',
+            'tipoLixo' => 'required|max:1000',
+            ]);
+
+
+            //guardar os dados 
+
+            $caixote = new CaixoteLixo;
+
+            $caixote -> nome = $request->nome;
+            $caixote -> descricao = $request->descricao;
+            $caixote -> capacidade = $request->capacidade;
+            $caixote -> level = $request->level;
+            $caixote -> tipoLixo = $request->tipoLixo;
+            $caixote -> local_id = $request->local_id;
+
+            $caixote -> save();
+
+            return redirect ()->route('BoCaixote.index')->with('message','Caixote do lixo adicionado com sucesso');
     }
 
     /**
@@ -55,9 +82,12 @@ class BackOfficeCaixotes extends Controller
      * @param  \App\CaixoteLixo  $caixoteLixo
      * @return \Illuminate\Http\Response
      */
-    public function edit(CaixoteLixo $caixoteLixo)
+    public function edit($id)
     {
-        //
+        $caixote = CaixoteLixo::findOrFail($id);
+        $local = Local::all();
+
+        return view('BoCaixote.edit',compact('caixote', 'local'));
     }
 
     /**
@@ -67,9 +97,33 @@ class BackOfficeCaixotes extends Controller
      * @param  \App\CaixoteLixo  $caixoteLixo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, CaixoteLixo $caixoteLixo)
+    public function update(Request $request, $id)
     {
-        //
+        //validação dos dados
+            $this->validate($request, [
+
+            'nome' => 'required|max:255',
+            'descricao' => 'required|max:255',
+            'capacidade' => 'required',
+            'level' => 'required',
+            'tipoLixo' => 'required|max:1000',
+            ]);
+
+
+            //guardar os dados 
+
+            $caixote = CaixoteLixo::findOrFail($id);
+
+            $caixote -> nome = $request->nome;
+            $caixote -> descricao = $request->descricao;
+            $caixote -> capacidade = $request->capacidade;
+            $caixote -> level = $request->level;
+            $caixote -> tipoLixo = $request->tipoLixo;
+            $caixote -> local_id = $request->local_id;
+
+            $caixote -> save();
+
+            return redirect ()->route('BoCaixote.index')->with('message','Caixote do lixo editado com sucesso');
     }
 
     /**
@@ -78,8 +132,10 @@ class BackOfficeCaixotes extends Controller
      * @param  \App\CaixoteLixo  $caixoteLixo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(CaixoteLixo $caixoteLixo)
+    public function destroy($id)
     {
-        //
+        $caixote = CaixoteLixo::findOrFail($id);
+        $caixote->delete();
+        return redirect ()->route('BoCaixote.index')->with('message','Caixote do lixo eliminado com sucesso');
     }
 }
