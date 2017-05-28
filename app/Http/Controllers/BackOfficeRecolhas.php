@@ -14,7 +14,9 @@ class BackOfficeRecolhas extends Controller
      */
     public function index()
     {
-        //
+        $user = \Auth::user();
+        $recolhas = Recolha::paginate(4);
+        return view ('BoRecolha.recolhas', compact('recolhas','user'));
     }
 
     /**
@@ -67,9 +69,14 @@ class BackOfficeRecolhas extends Controller
      * @param  \App\Recolha  $recolha
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Recolha $recolha)
+    public function update(Request $request, $id)
     {
-        //
+        $recolha = Recolha::findOrFail($id);
+
+        $recolha -> estado = $request->name;
+        $recolha->save();
+
+        return redirect ()->route('BoRecolha.recolhas')->with('message','Recolha feita com sucesso');
     }
 
     /**
@@ -78,8 +85,8 @@ class BackOfficeRecolhas extends Controller
      * @param  \App\Recolha  $recolha
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Recolha $recolha)
+    public function destroy($id)
     {
-        //
+        
     }
 }

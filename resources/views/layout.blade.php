@@ -44,10 +44,9 @@
                        <a href="/BoCaixote">Caixotes</a>
                        <a href="/BoEdificio">Edificios</a>
                        <a href="/BoFuncionario">Funcionários</a>
-                       <a href="">Locais</a>
+                       <a href="/BoLocal">Locais</a>
                        <a href="">Pisos</a>
-                       <a href="">Recolhas</a>
-                       <a href="">Tipos</a>
+                       <a href="/BoRecolha">Recolhas</a>
                        <!--<a href="">Utilizadores</a> -->
                    </div>
             @if(Auth::check())
