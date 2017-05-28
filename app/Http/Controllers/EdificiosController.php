@@ -12,12 +12,12 @@ class EdificiosController extends Controller
         $piso_display = $edificio_display->pisos()->get();
         $locais_display = $edificio_display->locais()->get();
         
-        foreach($piso_display as $pisos)
-        {
-            $caixotes_display = $pisos->caixotes()->get();
-        }
+        $caixotes_display = \App\CaixoteLixo::all();
         
-        return view('edificios', compact('edificio_display', 'piso_display', 'locais_display', 'caixotes_display'));
+        $teste = $edificio_display->caixotes();
+        
+        
+        return view('edificios', compact('edificio_display', 'piso_display', 'locais_display', 'caixotes_display', 'teste'));
     }
     
     public function caixotes(Request $request)
