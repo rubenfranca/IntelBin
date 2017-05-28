@@ -11,6 +11,6 @@ class CaixoteLixo extends Model
 
     public function recolhas()
     {
-        return $this->belongsToMany('app\Recolha', 'caixote_has_recolha', 'caixoteLixo_id', 'recolha_id');
+        return $this->belongsToMany('App\Recolha', 'caixote_has_recolha', 'caixoteLixo_id', 'recolha_id');
     }
 }

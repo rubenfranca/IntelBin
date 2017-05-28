@@ -11,11 +11,16 @@ class Edificio extends Model
 
     public function users()
     {
-        return $this->belongsToMany('app\User', 'edificio_has_user', 'edificio_id', 'user_id');
+        return $this->belongsToMany('App\User', 'edificio_has_user', 'edificio_id', 'user_id');
     }
 
     public function pisos()
     {
-        return $this->hasMany('app\Piso', 'edificio_id');
+        return $this->hasMany('App\Piso', 'edificio_id');
+    }
+    
+    public function locais()
+    {
+        return $this->hasManyThrough('App\Local', 'App\Piso', 'edificio_id', 'piso_id', 'id');
     }
 }

@@ -11,6 +11,6 @@ class Tipo extends Model
 
     public function users()
     {
-        return $this->hasMany('app\User', 'tipo_id');
+        return $this->hasMany('App\User', 'tipo_id');
     }
 }

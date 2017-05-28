@@ -11,6 +11,11 @@ class Piso extends Model
 
     public function locais()
     {
-        return $this->hasMany('app\Local', 'piso_id');
+        return $this->hasMany('App\Local', 'piso_id');
+    }
+    
+    public function caixotes()
+    {
+        return $this->hasManyThrough('App\CaixoteLixo', 'App\Local', 'piso_id', 'local_id', 'id');
     }
 }

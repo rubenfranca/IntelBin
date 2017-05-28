@@ -23,6 +23,8 @@ Route::get('/caixotes', 'CaixoteLixoController@show');
 
 Route::get('/edificios/{id}', 'EdificiosController@show');
 
+Route::post('/edificios/caixotes', 'EdificiosController@caixotes');
+
 Route::get('/BOcaixotes', 'BackOfficeCaixotes@show');
 
 Route::get('/BOedificios', 'BackOfficeEdificios@show');
@@ -37,9 +39,12 @@ Route::get('/BOrecolhas', 'BackOfficeRecolhas@show');
 
 Route::get('/BOtipos', 'BackOfficeTipos@show');
 
+<<<<<<< HEAD
 //BackOffice
 Route::resource('BoEdificio', "BackOfficeEdificios");
 Route::resource('BoCaixote', "BackOfficeCaixotes");
 Route::resource('BoFuncionario', "BackOfficeFuncionarios");
+=======
+>>>>>>> origin/master
 
 //Route::get('/BOutilizadores', 'BackOfficeUtilizadores@show');

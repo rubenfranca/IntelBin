@@ -11,6 +11,6 @@ class Local extends Model
 
     public function caixotesLixo()
     {
-        return $this->hasMany('app\CaixoteLixo', 'local_id');
+        return $this->hasMany('App\CaixoteLixo', 'local_id');
     }
 }

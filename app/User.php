@@ -31,11 +31,11 @@ class User extends Authenticatable
 
     public function edificios()
     {
-        return $this->belongsToMany('app\Edificio', 'edificio_has_user', 'user_id', 'edificio_id');
+        return $this->belongsToMany('App\Edificio', 'edificio_has_user', 'user_id', 'edificio_id');
     }
 
     public function recolhas()
     {
-        return $this->hasMany('app\Recolha', 'user_id');
+        return $this->hasMany('App\Recolha', 'user_id');
     }
 }
