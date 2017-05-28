@@ -30,7 +30,6 @@
            @if(Auth::guest())
            <a href="/home">Login</a>
            @endif
-           <a href="/caixotes">Caixotes</a>
            <a onclick="myAccFunc('edificios')">Edificios<i class="fa fa-caret-down"></i></a>
                   <div id="edificios" class="w3-hide w3-grey w3-card">
                   @foreach($edificios as $edificio)
