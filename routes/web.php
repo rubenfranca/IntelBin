@@ -47,5 +47,6 @@ Route::resource('BoFuncionario', "BackOfficeFuncionarios");
 Route::resource('BoLocal', "BackOfficeLocais");
 Route::resource('BoRecolha', "BackOfficeRecolhas");
 
+//Route::get('/recolhas', 'BackOfficeRecolhas@index');
 
 //Route::get('/BOutilizadores', 'BackOfficeUtilizadores@show');

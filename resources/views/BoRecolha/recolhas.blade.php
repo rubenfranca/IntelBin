@@ -60,9 +60,14 @@
             </tr>
             </tbody>
             </table>
-
+        </div>
+          {{$recolhas->links()}}
+    </div>
         
     </div>
+
     </div>
+
+
 
 @endsection

@@ -15,7 +15,7 @@ class BackOfficeRecolhas extends Controller
     public function index()
     {
         $user = \Auth::user();
-        $recolhas = Recolha::paginate(4);
+        $recolhas = Recolha::paginate(10);
         return view ('BoRecolha.recolhas', compact('recolhas','user'));
     }
 
