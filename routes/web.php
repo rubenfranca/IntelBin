@@ -23,6 +23,8 @@ Route::get('/caixotes', 'CaixoteLixoController@show');
 
 Route::get('/edificios/{id}', 'EdificiosController@show');
 
+Route::post('/edificios/caixotes', 'EdificiosController@caixotes');
+
 Route::get('/BOcaixotes', 'BackOfficeCaixotes@show');
 
 Route::get('/BOedificios', 'BackOfficeEdificios@show');
@@ -36,5 +38,6 @@ Route::get('/BOpisos', 'BackOfficePisos@show');
 Route::get('/BOrecolhas', 'BackOfficeRecolhas@show');
 
 Route::get('/BOtipos', 'BackOfficeTipos@show');
+
 
 //Route::get('/BOutilizadores', 'BackOfficeUtilizadores@show');
