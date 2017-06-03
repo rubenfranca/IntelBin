@@ -25,8 +25,8 @@
                                        @if($caixotes->local_id == $locais->id)
                                               <p><strong>Id: </strong>{{$caixotes->id}}</p>
                                               <p><strong>Nome: </strong>{{$caixotes->nome}}</p>
-                                              <p><strong>Capacidade: </strong> {{$caixotes->capacidade}}</p>
-                                              <p><strong>Nível atual: </strong> {{$caixotes->level}} </p>
+                                              <p><strong>Capacidade: </strong> {{$caixotes->capacidade}} L</p>
+                                              <p><strong>Nível atual: </strong> {{$caixotes->level}} %</p>
                                               <p><strong>Tipo de Lixo: </strong> {{$caixotes->tipoLixo}} </p>
                                            <hr>
                                        @endif
