@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Recolha;
 use App\User;
+use App\CaixoteLixo;
 use Illuminate\Http\Request;
 
 class BackOfficeRecolhas extends Controller
@@ -17,7 +18,8 @@ class BackOfficeRecolhas extends Controller
     {
         $user = User::all();
         $recolhas = Recolha::paginate(5);
-        return view ('BoRecolha.recolhas', compact('recolhas','user'));
+        $caixotes = CaixoteLixo::all();
+        return view ('BoRecolha.recolhas', compact('recolhas','user','caixotes'));
     }
 
     /**
@@ -54,8 +56,17 @@ class BackOfficeRecolhas extends Controller
             $recolha -> hora = $request->hora;
             $recolha -> estado = $request->estado;
             $recolha -> user_id = $request->user_id;
-
+        
             $recolha -> save();
+            
+            $caixote = $request->caixotes;
+            foreach($caixote as $caixotes)
+            {
+                $recolha->caixotesLixo()->attach($caixotes);
+            }
+            
+
+            //
 
             return redirect ()->route('BoRecolha.index')->with('message','Recolha adicionada com sucesso');
     }

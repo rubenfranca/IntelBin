@@ -92,8 +92,15 @@
 	<select name = "user_id">
 	@foreach($user as $utilizador)	
 	<option value ="{{$utilizador->id}}" > {{$utilizador->name}} </option>
-	@endforeach()
+	@endforeach
 	</select>
+	</div>
+	
+	<div class="form-group">
+	    <label>Caixote: </label><br>
+	        @foreach($caixotes as $caixote)
+	            <input type="checkbox" name="caixotes[]" value="{{$caixote->id}}">{{$caixote->nome}} <br>
+	        @endforeach
 	</div>
 
 	<div class="form-group">
