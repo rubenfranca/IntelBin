@@ -30,7 +30,6 @@
            @if(Auth::guest())
            <a href="/home">Login</a>
            @endif
-           <a href="/caixotes">Caixotes</a>
            <a onclick="myAccFunc('edificios')">Edificios<i class="fa fa-caret-down"></i></a>
                   <div id="edificios" class="w3-hide w3-grey w3-card">
                   @foreach($edificios as $edificio)
@@ -39,7 +38,8 @@
                    </div>
            
            
-           <a onclick="myAccFunc('demoAcc')">BackOffice<i class="fa fa-caret-down"></i></a>
+           @if(Auth::check() && Auth::user()->tipo_id == '2')
+                 <a onclick="myAccFunc('demoAcc')">BackOffice<i class="fa fa-caret-down"></i></a>
                   <div id="demoAcc" class="w3-hide w3-grey w3-card">
                        <a href="/BoCaixote">Caixotes</a>
                        <a href="/BoEdificio">Edificios</a>
@@ -49,6 +49,7 @@
                        <a href="/BoRecolha">Recolhas</a>
                        <!--<a href="">Utilizadores</a> -->
                    </div>
+            @endif
             @if(Auth::check())
            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
 

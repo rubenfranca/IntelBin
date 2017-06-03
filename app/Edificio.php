@@ -23,4 +23,16 @@ class Edificio extends Model
     {
         return $this->hasManyThrough('App\Local', 'App\Piso', 'edificio_id', 'piso_id', 'id');
     }
+    
+    public function caixotes()
+    {
+        $caixotes=[];
+        
+        foreach($this->locais as $local)
+        {
+            $caixotes[] = $local->caixotesLixo;
+        }
+        
+        return $caixotes;
+    }
 }
