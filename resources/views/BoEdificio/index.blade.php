@@ -26,6 +26,13 @@
         	<p><strong>Numero de salas: </strong>{{$edificio->numeroSalas}}</p>
         	<p><strong>Numero de corredores: </strong>{{$edificio->numeroCorredores}}</p>
         	<p><strong>Localidade: </strong>{{$edificio->localidade}}</p>
+          <p>
+          <strong>Funcionários: </strong>    
+          @foreach($edificio->users()->get() as $teste)
+          {{$teste->name}};
+          @endforeach
+          </p>
+          
           <hr>
           <form class = "" action="{{route('BoEdificio.destroy',$edificio->id)}}" method="post">
             <input type="hidden" name="_method" value="delete">

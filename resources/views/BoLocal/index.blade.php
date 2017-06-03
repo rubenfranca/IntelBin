@@ -46,7 +46,7 @@
     </div>
 
 
-    <a href="{{route('BoLocal.create')}}" class = " btn btn-success"> Adicionar novo edifício</a>
+    <a href="{{route('BoLocal.create')}}" class = " btn btn-success"> Adicionar novo local</a>
 
 
           </div>

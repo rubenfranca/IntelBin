@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class CaixoteLixo extends Model
 {
-    protected $table = 'caixoteLixo';
+    protected $table = 'caixotelixo';
     public $timestamps = true;
 
     public function recolhas()
