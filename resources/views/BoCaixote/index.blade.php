@@ -25,7 +25,7 @@
         	<p><strong>Capacidade: </strong>{{$caixote->capacidade}}</p>
         	
           <p><strong>Nivel: </strong>
-          @foreach($caixote->levels()->get() as $levels)
+          @foreach($caixote->levels()->latest() as $levels)
           {{$levels->level}}
           @endforeach
           </p>
