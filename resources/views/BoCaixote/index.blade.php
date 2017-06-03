@@ -25,9 +25,7 @@
         	<p><strong>Capacidade: </strong>{{$caixote->capacidade}}</p>
         	
           <p><strong>Nivel: </strong>
-          @foreach($caixote->levels()->latest() as $levels)
-          {{$levels->level}}
-          @endforeach
+          {{$caixote->levels()->orderBy('data','desc')->first()->level}}
           </p>
         	<p><strong>Tipo de lixo: </strong>{{$caixote->tipoLixo}}</p>
         	
