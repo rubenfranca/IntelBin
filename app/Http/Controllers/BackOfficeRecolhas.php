@@ -46,7 +46,6 @@ class BackOfficeRecolhas extends Controller
             $this->validate($request, [
 
             'data' => 'required|max:255',
-            'hora' => 'required|max:255',
             ]);
 
 
@@ -56,10 +55,10 @@ class BackOfficeRecolhas extends Controller
             $date1 = new DateTime();
             
             $usableDate = $date1->format('Y-m-d');
-            $hora1 = $date1->format('H:i:s');
+            //$hora1 = $date1->format('H:i:s');
  
             $recolha-> data = $usableDate;
-            $recolha -> hora = $hora1;
+            $recolha -> hora = 0;
             $recolha -> estado = $request->estado;
             $recolha -> user_id = $request->user_id;
         
@@ -107,14 +106,21 @@ class BackOfficeRecolhas extends Controller
      * @param  \App\Recolha  $recolha
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id)
     {
         $recolha = Recolha::findOrFail($id);
 
-        $recolha -> estado = $request->name;
+        $recolha -> estado = 1;
+        $date1 = new DateTime();
+        $usableDate = $date1->format('Y-m-d');
+        $hora1 = $date1->format('H:i:s');
+ 
+        $recolha-> data = $usableDate;
+        $recolha -> hora = $hora1;
+
         $recolha->save();
 
-        return redirect ()->route('BoRecolha.recolhas')->with('message','Recolha feita com sucesso');
+    return redirect ()->route('BoRecolha.index')->with('message','Recolha feita com sucesso');
     }
 
     /**

@@ -3,6 +3,16 @@
    <div class="container">
     <div class="row">
 
+    @if (count($errors) > 0)
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+
              <h2><strong>Recolhas</strong></h2>
              <hr>
 
@@ -42,8 +52,8 @@
                 @else
                <td>
 					<form class = "" action="{{route('BoRecolha.update',$recolha->id)}}" method="post">
-            		<input type="hidden" name="_method" value="update">
             		<input type="hidden" name="_token" value="{{ csrf_token() }}">
+            		<input name="_method" type="hidden" value ="PATCH">
             		<input type="submit" class="btn btn-success btn-sm" name="name" value="Fazer recolha">
      			 </form>
 				</td>
@@ -79,12 +89,13 @@
 	<label>Data: </label><br>
 	<input type="date" name="data" class="form-control">
 	</div>
-
+<!--
 	<div class="form-group">
 	<label>Hora: </label><br>
 	<input type="text" name="hora" class="form-control"><br>
 	</div>
-
+-->
+	<input id="hora" type="hidden" class="form-control" name="estado" value= 0 required>
 	<input id="estado" type="hidden" class="form-control" name="estado" value= 2 required>
 
 	<div class="form-group">
