@@ -23,7 +23,12 @@
         <div class="panel-body">
         	<p><strong>Nome: </strong>{{$caixote->nome}}</p> 
         	<p><strong>Capacidade: </strong>{{$caixote->capacidade}}</p>
-        	<p><strong>Nivel: </strong>{{$caixote->level}}</p>
+        	
+          <p><strong>Nivel: </strong>
+          @foreach($caixote->levels()->get() as $levels)
+          {{$levels->level}}
+          @endforeach
+          </p>
         	<p><strong>Tipo de lixo: </strong>{{$caixote->tipoLixo}}</p>
         	
           <p><strong>Descrição: </strong>{{$caixote->descricao}}</p>

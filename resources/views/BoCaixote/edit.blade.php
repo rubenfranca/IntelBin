@@ -33,11 +33,6 @@
 	</div>
 
 	<div class="form-group">
-	<label>Nivel de lixo: </label><br>
-	<input type="number" name="level" class="form-control" min="0" value = "{{$caixote->level}}" >
-	</div>
-
-	<div class="form-group">
 	<label>Tipo de lixo: </label><br>
 	<input type="text" name="tipoLixo" class="form-control"  value="{{$caixote->tipoLixo}}"><br>
 	</div>

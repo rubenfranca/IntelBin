@@ -11,6 +11,6 @@ class Levels extends Model
     
     public function caixotes()
     {
-        return $this->belongsTo('App\CaixoteLixo','caixote_id');
+        return $this->belongsTo('App\CaixoteLixo','caixotelixo_id');
     }
 }

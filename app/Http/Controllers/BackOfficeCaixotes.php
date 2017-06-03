@@ -44,7 +44,6 @@ class BackOfficeCaixotes extends Controller
             'nome' => 'required|max:255',
             'descricao' => 'required|max:255',
             'capacidade' => 'required',
-            'level' => 'required',
             'tipoLixo' => 'required|max:1000',
             ]);
 
@@ -56,7 +55,6 @@ class BackOfficeCaixotes extends Controller
             $caixote -> nome = $request->nome;
             $caixote -> descricao = $request->descricao;
             $caixote -> capacidade = $request->capacidade;
-            $caixote -> level = $request->level;
             $caixote -> tipoLixo = $request->tipoLixo;
             $caixote -> local_id = $request->local_id;
 
@@ -117,7 +115,6 @@ class BackOfficeCaixotes extends Controller
             $caixote -> nome = $request->nome;
             $caixote -> descricao = $request->descricao;
             $caixote -> capacidade = $request->capacidade;
-            $caixote -> level = $request->level;
             $caixote -> tipoLixo = $request->tipoLixo;
             $caixote -> local_id = $request->local_id;
 

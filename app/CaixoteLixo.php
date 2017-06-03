@@ -16,6 +16,6 @@ class CaixoteLixo extends Model
     
     public function levels()
     {
-        return $this->hasMany('App\Levels', 'caixote_id');
+        return $this->hasMany('App\Levels', 'caixotelixo_id');
     }
 }
