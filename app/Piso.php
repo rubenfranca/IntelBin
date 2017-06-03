@@ -18,4 +18,10 @@ class Piso extends Model
     {
         return $this->hasManyThrough('App\CaixoteLixo', 'App\Local', 'piso_id', 'local_id', 'id');
     }
+
+        public function edificios()
+    {
+        return $this->belongsTo('App\Edificio', 'edificio_id');
+    }
+
 }

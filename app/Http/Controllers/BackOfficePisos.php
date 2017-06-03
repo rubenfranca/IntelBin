@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Piso;
+use App\Edificio;
 use Illuminate\Http\Request;
 
 class BackOfficePisos extends Controller
@@ -14,7 +15,9 @@ class BackOfficePisos extends Controller
      */
     public function index()
     {
-        //
+        $piso = Piso::all();
+        $edificio = Edificio::all();
+        return view('BoPiso.index', compact('piso','edificio'));
     }
 
     /**
@@ -24,7 +27,7 @@ class BackOfficePisos extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -35,7 +38,25 @@ class BackOfficePisos extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //validação dos dados
+            $this->validate($request, [
+
+            'nome' => 'required|max:255',
+            ]);
+
+
+            //guardar os dados 
+
+            $piso = new Piso;
+
+            $piso -> nome = $request->nome;
+            $piso -> edificio_id = $request->edificio_id;
+
+            $piso -> save();
+
+        return redirect ()->route('BoPiso.index')->with('message','Edifício criado com sucesso');
+
+
     }
 
     /**

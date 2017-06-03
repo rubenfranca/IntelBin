@@ -6,6 +6,8 @@ use App\Recolha;
 use App\User;
 use App\CaixoteLixo;
 use Illuminate\Http\Request;
+use DateTime;
+use Carbon;
 
 class BackOfficeRecolhas extends Controller
 {
@@ -51,9 +53,13 @@ class BackOfficeRecolhas extends Controller
             //guardar os dados 
 
             $recolha = new Recolha;
-
-            $recolha-> data = $request->data;
-            $recolha -> hora = $request->hora;
+            $date1 = new DateTime();
+            
+            $usableDate = $date1->format('Y-m-d');
+            $hora1 = $date1->format('H:i:s');
+ 
+            $recolha-> data = $usableDate;
+            $recolha -> hora = $hora1;
             $recolha -> estado = $request->estado;
             $recolha -> user_id = $request->user_id;
         
@@ -69,6 +75,7 @@ class BackOfficeRecolhas extends Controller
             //
 
             return redirect ()->route('BoRecolha.index')->with('message','Recolha adicionada com sucesso');
+    
     }
 
     /**

@@ -45,7 +45,7 @@
                        <a href="/BoEdificio">Edificios</a>
                        <a href="/BoFuncionario">Funcionários</a>
                        <a href="/BoLocal">Locais</a>
-                       <a href="">Pisos</a>
+                       <a href="/BoPiso">Pisos</a>
                        <a href="/BoRecolha">Recolhas</a>
                        <!--<a href="">Utilizadores</a> -->
                    </div>
