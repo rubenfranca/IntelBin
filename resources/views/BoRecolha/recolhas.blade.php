@@ -3,8 +3,10 @@
    <div class="container">
     <div class="row">
 
-             <h2>Recolhas</h2>
+             <h2><strong>Recolhas</strong></h2>
              <hr>
+
+ <div class=".col-md-8"> 
 
 <table  class="table table-striped">
 		<thead>
@@ -62,12 +64,47 @@
             </table>
         </div>
           {{$recolhas->links()}}
+</div>  
+
+
+<div class=".col-md-4">
+          <form  action="{{route('BoRecolha.store')}}" method="post">
+	
+	{{csrf_field()}}
+ 	
+ 	<h2>Nova recolha</h2>
+ 	<hr>
+
+	<div class="form-group">
+	<label>Data: </label><br>
+	<input type="date" name="data" class="form-control">
+	</div>
+
+	<div class="form-group">
+	<label>Hora: </label><br>
+	<input type="text" name="hora" class="form-control"><br>
+	</div>
+
+	<input id="estado" type="hidden" class="form-control" name="estado" value= 2 required>
+
+	<div class="form-group">
+	<label>Funcionário: </label><br>
+	<select name = "user_id">
+	@foreach($user as $utilizador)	
+	<option value ="{{$utilizador->id}}" > {{$utilizador->name}} </option>
+	@endforeach()
+	</select>
+	</div>
+
+	<div class="form-group">
+	<input type="submit" class="btn btn-success" value="Guardar">
+	</div>
+	</form>
     </div>
         
     </div>
 
     </div>
-
 
 
 @endsection

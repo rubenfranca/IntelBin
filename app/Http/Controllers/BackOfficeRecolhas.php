@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Recolha;
+use App\User;
 use Illuminate\Http\Request;
 
 class BackOfficeRecolhas extends Controller
@@ -14,8 +15,8 @@ class BackOfficeRecolhas extends Controller
      */
     public function index()
     {
-        $user = \Auth::user();
-        $recolhas = Recolha::paginate(10);
+        $user = User::all();
+        $recolhas = Recolha::paginate(5);
         return view ('BoRecolha.recolhas', compact('recolhas','user'));
     }
 
@@ -37,7 +38,26 @@ class BackOfficeRecolhas extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //validação dos dados
+            $this->validate($request, [
+
+            'data' => 'required|max:255',
+            'hora' => 'required|max:255',
+            ]);
+
+
+            //guardar os dados 
+
+            $recolha = new Recolha;
+
+            $recolha-> data = $request->data;
+            $recolha -> hora = $request->hora;
+            $recolha -> estado = $request->estado;
+            $recolha -> user_id = $request->user_id;
+
+            $recolha -> save();
+
+            return redirect ()->route('BoRecolha.index')->with('message','Recolha adicionada com sucesso');
     }
 
     /**

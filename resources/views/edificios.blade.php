@@ -32,5 +32,7 @@
     </div>
 </div>
 
+{{$caixotes_display}}
+
 
 @endsection
