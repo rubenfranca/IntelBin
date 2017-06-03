@@ -13,4 +13,9 @@ class CaixoteLixo extends Model
     {
         return $this->belongsToMany('App\Recolha', 'caixote_has_recolha', 'caixoteLixo_id', 'recolha_id');
     }
+    
+    public function levels()
+    {
+        return $this->hasMany('App\Levels', 'caixote_id');
+    }
 }
