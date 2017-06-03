@@ -2,7 +2,13 @@
 @section('content')
 
 
-@if (count($errors) > 0)
+
+
+   <div class="container">
+    <div class="row">
+
+    <div class="col-md-9">	
+    @if (count($errors) > 0)
     <div class="alert alert-danger">
         <ul>
             @foreach ($errors->all() as $error)
@@ -11,16 +17,11 @@
         </ul>
     </div>
     @endif
-
-   <div class="container">
-    <div class="row">
-    <div class="col-md-9">	
 		<form  action="{{route('BoEdificio.store')}}" method="post">
 	
 	{{csrf_field()}}
  	
- 	<h2>Introduzir novo Edificio</h2>
-
+ 	<h2>Introduzir novo Edificio</h2>	
 	<div class="form-group">
 	<label>Nome: </label><br>
 	<input type="text" name="nome" class="form-control">
@@ -44,11 +45,21 @@
 	<div class="form-group">
 	<label>Numero de corredores: </label><br>
 	<input type="number" name="numeroCorredores" class="form-control" min="0"><br>
+	
+	</div>
+
+	<div class="form-group">
+	<label>Funcionário(s):</label> <br>
+	@foreach($funcionario as $funcionarios)
+	<input type="checkbox" name="funcionario1[]" value = "{{$funcionarios->id}}" > {{$funcionarios->name}} <br>
+	@endforeach
 	</div>
 
 
 	<div class="form-group">
 	<input type="submit" class="btn btn-success" value="Guardar">
+	
+	
 	</div>
 	</form>
 

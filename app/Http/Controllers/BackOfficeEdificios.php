@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Edificio;
+use App\User;
+
 use Illuminate\Http\Request;
 
 class BackOfficeEdificios extends Controller
@@ -25,7 +27,8 @@ class BackOfficeEdificios extends Controller
      */
     public function create()
     {
-        return view('BoEdificio.create');
+        $funcionario = User::all();
+        return view('BoEdificio.create', compact('funcionario'));
     }
 
     /**
@@ -58,6 +61,13 @@ class BackOfficeEdificios extends Controller
             $edificio -> numeroCorredores = $request->numeroCorredores;
 
              $edificio -> save();
+
+             $funcio = $request->funcionario1;
+
+            foreach($funcio as $func)
+            {
+             $edificio->users()->attach($func);
+            }
 
             return redirect ()->route('BoEdificio.index')->with('message','Edifício criado com sucesso');
     }

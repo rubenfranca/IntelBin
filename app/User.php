@@ -38,4 +38,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Recolha', 'user_id');
     }
+
+    public function tipos()
+    {
+        return $this->belongsTo('App\Tipo', 'tipo_id');
+    }
 }
