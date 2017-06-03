@@ -47,6 +47,7 @@
                        <a href="/BoLocal">Locais</a>
                        <a href="/BoPiso">Pisos</a>
                        <a href="/BoRecolha">Recolhas</a>
+                       <a href="/BoListagens">Listagens</a>
                        <!--<a href="">Utilizadores</a> -->
                    </div>
             @endif

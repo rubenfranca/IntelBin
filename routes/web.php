@@ -39,6 +39,8 @@ Route::get('/BOrecolhas', 'BackOfficeRecolhas@show');
 
 Route::get('/BOtipos', 'BackOfficeTipos@show');
 
+Route::get('/BoListagens', 'BackOfficeListagens@show');
+
 
 
 Route::resource('BoEdificio', "BackOfficeEdificios");
