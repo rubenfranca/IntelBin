@@ -48,6 +48,7 @@
                        <a href="/BoPiso">Pisos</a>
                        <a href="/BoRecolha">Recolhas</a>
                        <a href="/BoListagens">Listagens</a>
+                       <a href="/BoProblemas">Problemas</a>
                        <!--<a href="">Utilizadores</a> -->
                    </div>
             @endif
