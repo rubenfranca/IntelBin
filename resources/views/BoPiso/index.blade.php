@@ -25,6 +25,14 @@
         	{{$edifi->nome}}
         	@endforeach
         	</p>
+          <hr>
+          <form class = "" action="{{route('BoPiso.destroy',$pisos->id)}}" method="post">
+            <input type="hidden" name="_method" value="delete">
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            <a href="{{route('BoPiso.edit', $pisos->id)}}" class="btn btn-warning btn-sm"> Editar </a> |
+            <input type="submit" class="btn btn-danger btn-sm" name="name" value="Eliminar">
+      </form>
+
         	</div>
        </div>
        </div>

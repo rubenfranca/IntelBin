@@ -76,9 +76,12 @@ class BackOfficePisos extends Controller
      * @param  \App\Piso  $piso
      * @return \Illuminate\Http\Response
      */
-    public function edit(Piso $piso)
+    public function edit($id)
     {
-        //
+         $piso = Piso::findOrFail($id);
+         $edificio = Edificio::all();
+
+        return view('BoPiso.edit',compact('edificio','piso'));
     }
 
     /**
@@ -88,9 +91,26 @@ class BackOfficePisos extends Controller
      * @param  \App\Piso  $piso
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Piso $piso)
+    public function update(Request $request, $id)
     {
-        //
+        //validação dos dados
+            $this->validate($request, [
+
+            'nome' => 'required|max:255',
+
+            ]);
+
+
+            //guardar os dados 
+
+            $piso = Piso::findOrFail($id);
+
+            $piso -> nome = $request->nome;
+            $piso -> edificio_id = $request->edificio_id;
+
+            $piso -> save();
+
+            return redirect ()->route('BoPiso.index')->with('message','Caixote do lixo editado com sucesso');
     }
 
     /**
@@ -99,8 +119,10 @@ class BackOfficePisos extends Controller
      * @param  \App\Piso  $piso
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Piso $piso)
+    public function destroy($id)
     {
-        //
+        $piso = Piso::findOrFail($id);
+        $piso->delete();
+        return redirect ()->route('BoPiso.index')->with('message','Caixote do lixo eliminado com sucesso');
     }
 }
