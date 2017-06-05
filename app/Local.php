@@ -18,5 +18,10 @@ class Local extends Model
     {
         return $this->belongsTo('App\Piso', 'piso_id');
     }
+    
+    public function problemas()
+    {
+        return $this->hasMany('App\Problemas','local_id');
+    }
 
 }

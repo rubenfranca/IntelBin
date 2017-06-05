@@ -1,6 +1,6 @@
 @extends('layout')
 @section('content')
-  <img src ="/images/Entrevista_Surreal_600.jpg" style="width:100%; height: 600px;">
+  <img src ="/images/UMa-01.png" style="width:100%; height: 600px;">
    <div class="container">
    
     <div class="row">

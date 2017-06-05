@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Carbon;
+use App\Problemas;
 
 class BackOfficeProblemas extends Controller
 {
@@ -13,7 +15,9 @@ class BackOfficeProblemas extends Controller
      */
     public function index()
     {
-        //
+        $problemas = \App\Problemas::all();
+        $user = \App\User::all();
+        return view ('BoProblema.index', compact('problemas', 'user'));
     }
 
     /**
@@ -43,9 +47,9 @@ class BackOfficeProblemas extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show($id)
     {
-        return view('backoffice.problemas');
+        //
     }
 
     /**
@@ -66,9 +70,16 @@ class BackOfficeProblemas extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id)
     {
-        //
+        $problema = Problemas::findOrFail($id);
+        
+        $problema -> estado = 2;
+        $problema->data = Carbon\Carbon::now();
+        
+        $problema->save();
+        
+        return redirect() ->route('BoProblema.index')->with('message','Recolha adicionada com sucesso');
     }
 
     /**

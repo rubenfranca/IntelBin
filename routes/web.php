@@ -42,11 +42,7 @@ Route::get('/BOtipos', 'BackOfficeTipos@show');
 
 Route::post('BoRecolha/{id}','BackOfficeRecolhas@update' );
 
-Route::get('/BoListagens', 'BackOfficeListagens@show');
-
-Route::get('/BoProblemas', 'BackOfficeProblemas@show');
-
-
+Route::get('/BOListagens', 'BackOfficeListagens@show');
 
 
 Route::resource('BoEdificio', "BackOfficeEdificios");
@@ -55,6 +51,7 @@ Route::resource('BoFuncionario', "BackOfficeFuncionarios");
 Route::resource('BoLocal', "BackOfficeLocais");
 Route::resource('BoRecolha', "BackOfficeRecolhas");
 Route::resource('BoPiso', "BackOfficePisos");
+Route::resource('BoProblema', 'BackOfficeProblemas');
 
 
 //Route::get('/recolhas', 'BackOfficeRecolhas@index');

@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
     
     <script src="{{ asset('/js/script.js') }}">
         window.Laravel = {!! json_encode([
@@ -48,7 +49,7 @@
                        <a href="/BoPiso">Pisos</a>
                        <a href="/BoRecolha">Recolhas</a>
                        <a href="/BoListagens">Listagens</a>
-                       <a href="/BoProblemas">Problemas</a>
+                       <a href="/BoProblema">Problemas</a>
                        <!--<a href="">Utilizadores</a> -->
                    </div>
             @endif
