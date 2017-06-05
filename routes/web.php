@@ -44,6 +44,8 @@ Route::post('BoRecolha/{id}','BackOfficeRecolhas@update' );
 
 Route::get('/BOListagens', 'BackOfficeListagens@show');
 
+Route::get('/BoListagens', 'BackOfficeListagens@show');
+
 
 Route::resource('BoEdificio', "BackOfficeEdificios");
 Route::resource('BoCaixote', "BackOfficeCaixotes");
