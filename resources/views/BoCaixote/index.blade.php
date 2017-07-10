@@ -14,22 +14,22 @@
 	<div class="panel panel-default">
       <div class="panel-heading">
         <h4 class="panel-title">
-          <strong>{{$caixote->nome}}</strong> <div class="col-md-offsets">
+          <strong>{{$caixote['nome']}}</strong> <div class="col-md-offsets">
           
         </h4>
       </div>
 
       <div id="collapse1" class="panel-collapse collapse in">
         <div class="panel-body">
-        	<p><strong>Nome: </strong>{{$caixote->nome}}</p> 
-        	<p><strong>Capacidade: </strong>{{$caixote->capacidade}}</p>
+        	<p><strong>Nome: </strong>{{$caixote['nome']}}</p> 
+        	<p><strong>Capacidade: </strong>{{$caixote['capacidade']}}</p>
         	
           <p><strong>Nivel: </strong>
-          {{$caixote->levels()->orderBy('data','desc')->first()->level}}
+          {{$caixote['level']}}
           </p>
-        	<p><strong>Tipo de lixo: </strong>{{$caixote->tipoLixo}}</p>
+        	<p><strong>Tipo de lixo: </strong>{{$caixote['tipoLixo']}}</p>
         	
-          <p><strong>Descrição: </strong>{{$caixote->descricao}}</p>
+          <p><strong>Descrição: </strong>{{$caixote['descricao']}}</p>
           <hr>
           <form class = "" action="{{route('BoCaixote.destroy',$caixote->id)}}" method="post">
             <input type="hidden" name="_method" value="delete">
